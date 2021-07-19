@@ -17,6 +17,10 @@
 		56C63C8926A5A19600B8D586 /* PrizeBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63C8826A5A19600B8D586 /* PrizeBookUITests.swift */; };
 		56C63CB026A5A5B200B8D586 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63CAF26A5A5B200B8D586 /* RealmManager.swift */; };
 		56C63CBA26A5A8D000B8D586 /* PrizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63CB926A5A8D000B8D586 /* PrizeModel.swift */; };
+		56C63CC626A5B41600B8D586 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63CC526A5B41600B8D586 /* MainCoordinator.swift */; };
+		56C63CCB26A5B42400B8D586 /* StoryboardedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63CCA26A5B42400B8D586 /* StoryboardedProtocol.swift */; };
+		56C63D0026A5BB7B00B8D586 /* AddPrize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56C63CFF26A5BB7B00B8D586 /* AddPrize.storyboard */; };
+		56C63D0526A5BB9300B8D586 /* AddPrizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63D0426A5BB9300B8D586 /* AddPrizeViewController.swift */; };
 		974753637040A4C6131333CF /* Pods_PrizeBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0A3F6BD544F5BEF9EF3BCF /* Pods_PrizeBookTests.framework */; };
 		C903ED3CE755BA36EA39CA18 /* Pods_PrizeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B144D4AF2EDE03A68922CAF1 /* Pods_PrizeBook.framework */; };
 		CBEAB67ACC165898BB28424C /* Pods_PrizeBook_PrizeBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D27C1B7B8FF459EB298BAF /* Pods_PrizeBook_PrizeBookUITests.framework */; };
@@ -58,6 +62,10 @@
 		56C63C8A26A5A19600B8D586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56C63CAF26A5A5B200B8D586 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		56C63CB926A5A8D000B8D586 /* PrizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeModel.swift; sourceTree = "<group>"; };
+		56C63CC526A5B41600B8D586 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		56C63CCA26A5B42400B8D586 /* StoryboardedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardedProtocol.swift; sourceTree = "<group>"; };
+		56C63CFF26A5BB7B00B8D586 /* AddPrize.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPrize.storyboard; sourceTree = "<group>"; };
+		56C63D0426A5BB9300B8D586 /* AddPrizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrizeViewController.swift; sourceTree = "<group>"; };
 		586A571E8A173C7B3332A0C6 /* Pods-PrizeBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrizeBookTests.release.xcconfig"; path = "Target Support Files/Pods-PrizeBookTests/Pods-PrizeBookTests.release.xcconfig"; sourceTree = "<group>"; };
 		67D27C1B7B8FF459EB298BAF /* Pods_PrizeBook_PrizeBookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrizeBook_PrizeBookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DB2BCCE89E38BC26E8FBEF /* Pods-PrizeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrizeBook.release.xcconfig"; path = "Target Support Files/Pods-PrizeBook/Pods-PrizeBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,9 +141,10 @@
 		56C63C6526A5A19500B8D586 /* PrizeBook */ = {
 			isa = PBXGroup;
 			children = (
-				56C63CB826A5A8A400B8D586 /* Models */,
+				56C63CC426A5B40600B8D586 /* Coordinator */,
 				56C63C9C26A5A1E400B8D586 /* UI */,
 				56C63C9F26A5A23500B8D586 /* Helpers */,
+				56C63CB826A5A8A400B8D586 /* Models */,
 				56C63C6626A5A19500B8D586 /* AppDelegate.swift */,
 				56C63C6826A5A19500B8D586 /* SceneDelegate.swift */,
 				56C63C6F26A5A19600B8D586 /* Assets.xcassets */,
@@ -176,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				56C63C6C26A5A19500B8D586 /* Main.storyboard */,
+				56C63CFF26A5BB7B00B8D586 /* AddPrize.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -184,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				56C63C6A26A5A19500B8D586 /* MainPageViewController.swift */,
+				56C63D0426A5BB9300B8D586 /* AddPrizeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +221,15 @@
 				56C63CB926A5A8D000B8D586 /* PrizeModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		56C63CC426A5B40600B8D586 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				56C63CC526A5B41600B8D586 /* MainCoordinator.swift */,
+				56C63CCA26A5B42400B8D586 /* StoryboardedProtocol.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		A6D1B016C40CFE5CEB43BDE7 /* Frameworks */ = {
@@ -332,6 +352,7 @@
 			files = (
 				56C63C7326A5A19600B8D586 /* LaunchScreen.storyboard in Resources */,
 				56C63C7026A5A19600B8D586 /* Assets.xcassets in Resources */,
+				56C63D0026A5BB7B00B8D586 /* AddPrize.storyboard in Resources */,
 				56C63C6E26A5A19500B8D586 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,8 +482,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C63CBA26A5A8D000B8D586 /* PrizeModel.swift in Sources */,
+				56C63D0526A5BB9300B8D586 /* AddPrizeViewController.swift in Sources */,
+				56C63CC626A5B41600B8D586 /* MainCoordinator.swift in Sources */,
 				56C63C6B26A5A19500B8D586 /* MainPageViewController.swift in Sources */,
 				56C63CB026A5A5B200B8D586 /* RealmManager.swift in Sources */,
+				56C63CCB26A5B42400B8D586 /* StoryboardedProtocol.swift in Sources */,
 				56C63C6726A5A19500B8D586 /* AppDelegate.swift in Sources */,
 				56C63C6926A5A19500B8D586 /* SceneDelegate.swift in Sources */,
 			);
@@ -648,7 +672,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.PrizeBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vermontalex.PrizeBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -668,7 +692,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.PrizeBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vermontalex.PrizeBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

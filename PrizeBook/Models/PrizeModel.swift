@@ -8,8 +8,10 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class PrizeModel: Object {
     
-    
+    dynamic var name = String()
+    dynamic var price = 0
     
 }

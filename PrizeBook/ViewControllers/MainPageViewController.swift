@@ -7,9 +7,24 @@
 
 import UIKit
 
-class MainPageViewController: UIViewController {
+class MainPageViewController: UIViewController, StoryboardedProtocol {
+    
+    static let identifier = "MainPageViewController"
+    static let storyboardName = "Main"
+    weak var coordinator: MainCoordinator?
+    
+    private let realmManager: DBManager = RealmManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createAddPrizeButton()
+    }
+    
+    func createAddPrizeButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+    }
+    
+    @objc func addTapped() {
+        coordinator?.startAddPrizePage(storyboardName: AddPrizeViewController.storyboardName)
     }
 }
