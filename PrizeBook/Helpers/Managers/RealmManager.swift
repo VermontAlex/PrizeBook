@@ -12,6 +12,7 @@ protocol DBManager {
     func save(prize: PrizeModel)
     func obtainPrizes() -> [PrizeModel]
     func delete(prize: PrizeModel)
+    func update(prize: PrizeModel, state: Bool) 
 }
 
 class RealmManager: DBManager {
@@ -22,6 +23,13 @@ class RealmManager: DBManager {
         try? mainRealm.write {
             mainRealm.add(prize)
         }
+    }
+    
+    func update(prize: PrizeModel, state: Bool) {
+        try! mainRealm.write {
+            prize.selected = state
+        }
+
     }
     
     func obtainPrizes() -> [PrizeModel] {
