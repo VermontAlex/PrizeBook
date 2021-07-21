@@ -64,7 +64,7 @@
                     </view>
                     <connections>
                         <outlet property="prizesTableView" destination="CYc-uQ-FRu" id="saS-8W-9Tt"/>
-                        <outlet property="summLabel" destination="gKZ-PV-mRn" id="OVo-VZ-sLz"/>
+                        <outlet property="sumLabel" destination="gKZ-PV-mRn" id="OVo-VZ-sLz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

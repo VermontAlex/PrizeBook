@@ -10,7 +10,7 @@ import UIKit
 class MainPageViewController: UIViewController, StoryboardedProtocol {
     
     @IBOutlet weak var prizesTableView: UITableView!
-    @IBOutlet weak var summLabel: UILabel!
+    @IBOutlet weak var sumLabel: UILabel!
     
     static let identifier = "MainPageViewController"
     static let storyboardName = "Main"
@@ -34,7 +34,7 @@ class MainPageViewController: UIViewController, StoryboardedProtocol {
     private func configurePrizesTableView() {
         prizesTableView.delegate = self
         prizesTableView.dataSource = self
-        summLabel.text = String(SettingsKeys.counterInBasket)
+        sumLabel.text = String(SettingsKeys.counterInBasket)
         prizesTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: PrizeTableViewCell.identifier)
         prizesTableView.backgroundColor = UIColor(red: 0.953, green: 0.984, blue: 1, alpha: 1)
     }
@@ -46,7 +46,7 @@ class MainPageViewController: UIViewController, StoryboardedProtocol {
             
             self.counter.balanceBasket(num: priceToDecrement, currentIndex: index)
             self.prizesTableView.reloadData()
-            self.summLabel.text = String(SettingsKeys.counterInBasket)
+            self.sumLabel.text = String(SettingsKeys.counterInBasket)
             
         }))
         present(alert, animated: true, completion: nil)
@@ -76,7 +76,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
             counter.decrement(num: prize.price)
         }
         
-        self.summLabel.text = String(SettingsKeys.counterInBasket)
+        self.sumLabel.text = String(SettingsKeys.counterInBasket)
         self.prizesTableView.reloadData()
     }
     
@@ -98,8 +98,15 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            realmManager.delete(prize: prizes[indexPath.row])
-            prizes.remove(at: indexPath.row)
+            let prize = prizes[indexPath.row]
+            let index = indexPath.row
+            let priceToDecrement = prizes[indexPath.row].price
+            
+            counter.decrement(num: priceToDecrement)
+            realmManager.delete(prize: prize)
+            prizes.remove(at: index)
+            
+            sumLabel.text = String(SettingsKeys.counterInBasket)
             tableView.reloadData()
         }
     }
