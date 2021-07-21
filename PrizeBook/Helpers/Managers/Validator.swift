@@ -14,11 +14,13 @@ protocol ValidatorProtocol {
 
 struct Validator: ValidatorProtocol {
     
-     func validPrice(price: String) -> Bool {
+    func validPrice(price: String) -> Bool {
+        guard Double(price) ?? 0.0 <= 100.00 else { return false }
         let priceNumRegex = "^[0-9]{0,3}$*((\\.|,)[0-9]{0,2})?$"
         let trimmedString = price.trimmingCharacters(in: .whitespaces)
-        let validatePhone = NSPredicate(format: "SELF MATCHES %@", priceNumRegex)
-        let isValidPrice = validatePhone.evaluate(with: trimmedString)
+        let validatePrice = NSPredicate(format: "SELF MATCHES %@", priceNumRegex)
+        let isValidPrice = validatePrice.evaluate(with: trimmedString)
+        
         return isValidPrice
     }
     
