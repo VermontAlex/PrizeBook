@@ -15,21 +15,28 @@ protocol DBManagerProtocol {
     func update(prize: PrizeModel, state: Bool) 
 }
 
-class RealmManager: DBManagerProtocol {
+final class RealmManager: DBManagerProtocol {
     
     fileprivate lazy var mainRealm = try! Realm(configuration: .defaultConfiguration)
     
     func save(prize: PrizeModel) {
-        try? mainRealm.write {
-            mainRealm.add(prize)
+        do {
+            try mainRealm.write {
+                mainRealm.add(prize)
+            }
+        } catch {
+            print(error)
         }
     }
     
     func update(prize: PrizeModel, state: Bool) {
-        try! mainRealm.write {
-            prize.selected = state
+        do {
+            try mainRealm.write {
+                prize.selected = state
+            }
+        } catch {
+            print(error)
         }
-
     }
     
     func obtainPrizes() -> [PrizeModel] {
@@ -39,8 +46,12 @@ class RealmManager: DBManagerProtocol {
     }
     
     func delete(prize: PrizeModel) {
-        try? mainRealm.write {
-            mainRealm.delete(prize)
+        do {
+            try mainRealm.write {
+                mainRealm.delete(prize)
+            }
+        } catch {
+            print(error)
         }
     }
 }

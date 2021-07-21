@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddPrizeViewController: UIViewController, StoryboardedProtocol {
+final class AddPrizeViewController: UIViewController, StoryboardedProtocol {
     
     @IBOutlet weak var namePrizeAddTextField: UITextField!
     @IBOutlet weak var pricePrizeAddTextField: UITextField!
@@ -44,9 +44,12 @@ class AddPrizeViewController: UIViewController, StoryboardedProtocol {
     
     @IBAction func savePrizeTapped(_ sender: UIButton) {
         informationLabel.isHidden = true
-        let prizeToSave = PrizeModel(id: UUID().uuidString, name: namePrizeAddTextField.text ?? "" , price: Double(pricePrizeAddTextField.text ?? "") ?? 0.0, selected: false)
-        if validatorManager.validName(name: namePrizeAddTextField.text ?? "") {
-            if validatorManager.validPrice(price: pricePrizeAddTextField.text ?? "" ) {
+        let name = namePrizeAddTextField.text ?? ""
+        let price = Double(pricePrizeAddTextField.text ?? "") ?? 0.0
+        let prizeToSave = PrizeModel(id: UUID().uuidString, name: name , price: price, selected: false)
+        
+        if validatorManager.validName(name: name) {
+            if validatorManager.validPrice(price: String(price)) {
                 realmManager.save(prize: prizeToSave)
                 showAlertResponse(message: "Prize was successfuly added. Do you want to continue?")
             } else {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainPageViewController: UIViewController, StoryboardedProtocol {
+final class MainPageViewController: UIViewController, StoryboardedProtocol {
     
     @IBOutlet weak var prizesTableView: UITableView!
     @IBOutlet weak var sumLabel: UILabel!
@@ -24,6 +24,7 @@ class MainPageViewController: UIViewController, StoryboardedProtocol {
         super.viewDidLoad()
         createAddPrizeButton()
         configurePrizesTableView()
+        sumLabel.text = String(format: "%.2f",SettingsKeys.counterInBasket)
     }
     
     override func viewWillAppear(_ animated: Bool) { //To-Do: change to Callback.
@@ -34,7 +35,6 @@ class MainPageViewController: UIViewController, StoryboardedProtocol {
     private func configurePrizesTableView() {
         prizesTableView.delegate = self
         prizesTableView.dataSource = self
-        sumLabel.text = String(SettingsKeys.counterInBasket)
         prizesTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: PrizeTableViewCell.identifier)
         prizesTableView.backgroundColor = UIColor(red: 0.953, green: 0.984, blue: 1, alpha: 1)
     }
@@ -46,8 +46,8 @@ class MainPageViewController: UIViewController, StoryboardedProtocol {
             
             self.counter.balanceBasket(num: priceToDecrement, currentIndex: index)
             self.prizesTableView.reloadData()
-            self.sumLabel.text = String(SettingsKeys.counterInBasket)
-            
+            self.sumLabel.text = String(format: "%.2f",SettingsKeys.counterInBasket)
+
         }))
         present(alert, animated: true, completion: nil)
     }
@@ -57,27 +57,25 @@ class MainPageViewController: UIViewController, StoryboardedProtocol {
     }
     
     @objc func addTapped() {
-        coordinator?.startAddPrizePage(storyboardName: AddPrizeViewController.storyboardName)
+        coordinator?.startAddPrizePage()
     }
 }
 
 extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let prize = prizes[indexPath.row]
-        if prize.selected == false {
-            if counter.increment(num: prize.price) == false {
+        if !prize.selected {
+            if !counter.increment(num: prize.price) {
                 showAlertResponse(priceToDecrement: prize.price, index: indexPath.row)
-                realmManager.update(prize: prize, state: true)
-            } else {
-                realmManager.update(prize: prize, state: true)
             }
+            realmManager.update(prize: prize, state: true)
         } else {
             realmManager.update(prize: prize, state: false)
             counter.decrement(num: prize.price)
         }
         
-        self.sumLabel.text = String(SettingsKeys.counterInBasket)
-        self.prizesTableView.reloadData()
+        sumLabel.text = String(format: "%.2f",SettingsKeys.counterInBasket)
+        prizesTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,7 +98,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             let prize = prizes[indexPath.row]
             let index = indexPath.row
-            let priceToDecrement = prizes[indexPath.row].price
+            let priceToDecrement = prizes[index].price
             
             realmManager.delete(prize: prize)
             prizes.remove(at: index)
@@ -114,10 +112,10 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
         let current = SettingsKeys.counterInBasket - value
         if current <= 0.0 {
             SettingsKeys.counterInBasket = 0.0
-            sumLabel.text = "0.0"
+            sumLabel.text = String(format: "%.2f",SettingsKeys.counterInBasket)
         } else {
             counter.decrement(num: value)
-            sumLabel.text = String(SettingsKeys.counterInBasket)
+            sumLabel.text = String(format: "%.2f",SettingsKeys.counterInBasket)
         }
     }
 }

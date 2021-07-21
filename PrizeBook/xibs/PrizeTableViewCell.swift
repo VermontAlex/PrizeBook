@@ -7,7 +7,13 @@
 
 import UIKit
 
-class PrizeTableViewCell: UITableViewCell {
+final class PrizeTableViewCell: UITableViewCell {
+    
+    private struct Default {
+        static let borderWidth: CGFloat = 20
+        static let cornerRadius: CGFloat = 40
+        static let borderColor = UIColor(red: 0.953, green: 0.984, blue: 1, alpha: 1).cgColor
+    }
     
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var nameOfPrizeLabel: UILabel!
@@ -18,10 +24,8 @@ class PrizeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        configureCell()
+        photoOfPrize.makeRounded()
     }
     
     override func prepareForReuse() {
@@ -29,29 +33,25 @@ class PrizeTableViewCell: UITableViewCell {
         nameOfPrizeLabel.text = nil
         priceOfPrizeLabel.text = nil
         photoOfPrize.image = nil
+        selectedView.backgroundColor = .white
     }
     
     func fillCell(prize: PrizeModel) {
         nameOfPrizeLabel.text = prize.name
         priceOfPrizeLabel.text = String(prize.price)
-        photoOfPrize.makeRounded()
-        if prize.selected == true {
-            selectedView.backgroundColor = .systemGreen
-        } else {
-            selectedView.backgroundColor = .white
-        }
-        configureCell()
+        selectedView.backgroundColor = prize.selected ? .systemGreen : .white
     }
+    
     private func configureCell(){
-        layer.borderWidth = 20
-        layer.borderColor = UIColor(red: 0.953, green: 0.984, blue: 1, alpha: 1).cgColor
-        layer.cornerRadius = 40
+        layer.borderWidth = Default.borderWidth
+        layer.borderColor = Default.borderColor
+        layer.cornerRadius = Default.cornerRadius
         clipsToBounds = true
         photoOfPrize.contentMode = .scaleAspectFill
     }
 }
 
-extension UIImageView {
+private extension UIImageView {
     func makeRounded() {
         let radius = self.frame.width / 2.0
         self.layer.cornerRadius = radius

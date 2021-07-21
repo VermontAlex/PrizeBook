@@ -8,7 +8,7 @@
 import Foundation
 
 struct SettingsKeys {
-    static var counterInBasket: Double { //Save date for requesting any update with beacons.
+    static var counterInBasket: Double {
         get {
             return UserDefaults.standard.double(forKey: "counterInBasket")
         } set {

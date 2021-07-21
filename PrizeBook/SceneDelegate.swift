@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         cleanBasket()
         let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController)
-        coordinator?.startMainPage(storyboardName: MainPageViewController.storyboardName)
+        coordinator?.startMainPage()
         
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
