@@ -13,6 +13,7 @@ class MainCoordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        navigationController.overrideUserInterfaceStyle = .light
     }
     
     func startMainPage(storyboardName: String) {

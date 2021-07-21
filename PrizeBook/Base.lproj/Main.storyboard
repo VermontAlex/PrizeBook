@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CYc-uQ-FRu">
-                                <rect key="frame" x="0.0" y="44" width="414" height="782"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEp-pm-sbX">
-                                <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="846" width="414" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="l5c-NW-Ogl">
-                                        <rect key="frame" x="99.5" y="25" width="215.5" height="20.5"/>
+                                        <rect key="frame" x="112" y="15" width="190.5" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basket:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCs-iY-q7A">
                                                 <rect key="frame" x="0.0" y="0.0" width="56.5" height="20.5"/>
@@ -32,8 +32,8 @@
                                                 <color key="textColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKZ-PV-mRn">
-                                                <rect key="frame" x="166.5" y="0.0" width="49" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKZ-PV-mRn">
+                                                <rect key="frame" x="166.5" y="0.0" width="24" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -43,13 +43,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="3oc-LG-Km5"/>
+                                    <constraint firstAttribute="height" constant="50" id="3oc-LG-Km5"/>
                                     <constraint firstItem="l5c-NW-Ogl" firstAttribute="centerY" secondItem="YEp-pm-sbX" secondAttribute="centerY" id="Ff0-yf-yY1"/>
                                     <constraint firstItem="l5c-NW-Ogl" firstAttribute="centerX" secondItem="YEp-pm-sbX" secondAttribute="centerX" id="bAg-dA-S1j"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YEp-pm-sbX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0Ne-cL-s95"/>
                             <constraint firstItem="CYc-uQ-FRu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CVS-ZA-UIs"/>

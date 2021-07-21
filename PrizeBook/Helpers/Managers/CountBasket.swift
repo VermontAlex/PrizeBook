@@ -7,13 +7,15 @@
 
 import Foundation
 
-protocol Counter {
-    <#requirements#>
+protocol CounterProtocol {
+    func increment(num: Double) -> Bool
+    func decrement(num: Double)
+    func balanceBasket(num: Double, currentIndex: Int)
 }
 
-struct CountBasket {
+struct CountBasket: CounterProtocol {
     
-    private let realmManager: DBManager = RealmManager()
+    private let realmManager: DBManagerProtocol = RealmManager()
     
     func increment(num: Double) -> Bool {
         let local = SettingsKeys.counterInBasket + num

@@ -15,11 +15,11 @@ class PrizeTableViewCell: UITableViewCell {
     @IBOutlet weak var photoOfPrize: UIImageView!
     
     static let identifier = "PrizeTableViewCell"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -36,19 +36,25 @@ class PrizeTableViewCell: UITableViewCell {
         priceOfPrizeLabel.text = String(prize.price)
         photoOfPrize.makeRounded()
         if prize.selected == true {
-            selectedView.backgroundColor = .green
+            selectedView.backgroundColor = .systemGreen
         } else {
-            selectedView.backgroundColor = .lightGray
+            selectedView.backgroundColor = .white
         }
+        configureCell()
+    }
+    private func configureCell(){
+        layer.borderWidth = 20
+        layer.borderColor = UIColor(red: 0.953, green: 0.984, blue: 1, alpha: 1).cgColor
+        layer.cornerRadius = 40
+        clipsToBounds = true
+        photoOfPrize.contentMode = .scaleAspectFill
     }
 }
 
 extension UIImageView {
     func makeRounded() {
-        self.layer.borderWidth = 1
-        self.layer.masksToBounds = false
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
+        let radius = self.frame.width / 2.0
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
     }
 }

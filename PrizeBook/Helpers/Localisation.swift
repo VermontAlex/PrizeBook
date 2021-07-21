@@ -8,6 +8,6 @@
 import Foundation
 
 struct Localisation {
-    static let failedName = "Name should be 3 charts minimum and in english language"
-    static let failedPrice = "Price should be just in numbers."
+    static let failedName = "Name should be 3 letters minimum. Without spacing and special symbols in english language"
+    static let failedPrice = "Price should be just in numbers with two decimal numbers maximum."
 }

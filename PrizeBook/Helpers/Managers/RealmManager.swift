@@ -8,14 +8,14 @@
 import Foundation
 import RealmSwift
 
-protocol DBManager {
+protocol DBManagerProtocol {
     func save(prize: PrizeModel)
     func obtainPrizes() -> [PrizeModel]
     func delete(prize: PrizeModel)
     func update(prize: PrizeModel, state: Bool) 
 }
 
-class RealmManager: DBManager {
+class RealmManager: DBManagerProtocol {
     
     fileprivate lazy var mainRealm = try! Realm(configuration: .defaultConfiguration)
     

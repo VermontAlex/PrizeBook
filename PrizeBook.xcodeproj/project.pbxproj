@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		565334C126A700090073BA4E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565334C026A700090073BA4E /* Counter.swift */; };
+		565334C126A700090073BA4E /* CountBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565334C026A700090073BA4E /* CountBasket.swift */; };
 		565334C626A700DA0073BA4E /* SettingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565334C526A700DA0073BA4E /* SettingsKeys.swift */; };
+		5653359D26A7F9E70073BA4E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5653359C26A7F9E70073BA4E /* Validator.swift */; };
 		568DDA1126A6CF1C00146FE3 /* Localisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568DDA1026A6CF1C00146FE3 /* Localisation.swift */; };
 		56C63C6726A5A19500B8D586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63C6626A5A19500B8D586 /* AppDelegate.swift */; };
 		56C63C6926A5A19500B8D586 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C63C6826A5A19500B8D586 /* SceneDelegate.swift */; };
@@ -51,8 +52,9 @@
 /* Begin PBXFileReference section */
 		3C0A3F6BD544F5BEF9EF3BCF /* Pods_PrizeBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrizeBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48540A4AFA64F1D8EB656813 /* Pods-PrizeBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrizeBook.debug.xcconfig"; path = "Target Support Files/Pods-PrizeBook/Pods-PrizeBook.debug.xcconfig"; sourceTree = "<group>"; };
-		565334C026A700090073BA4E /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		565334C026A700090073BA4E /* CountBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBasket.swift; sourceTree = "<group>"; };
 		565334C526A700DA0073BA4E /* SettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsKeys.swift; sourceTree = "<group>"; };
+		5653359C26A7F9E70073BA4E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		568DDA1026A6CF1C00146FE3 /* Localisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localisation.swift; sourceTree = "<group>"; };
 		56C63C6326A5A19500B8D586 /* PrizeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrizeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C63C6626A5A19500B8D586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -224,7 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				56C63CAF26A5A5B200B8D586 /* RealmManager.swift */,
-				565334C026A700090073BA4E /* Counter.swift */,
+				565334C026A700090073BA4E /* CountBasket.swift */,
+				5653359C26A7F9E70073BA4E /* Validator.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -507,8 +510,9 @@
 			files = (
 				56C63CBA26A5A8D000B8D586 /* PrizeModel.swift in Sources */,
 				56C63D0526A5BB9300B8D586 /* AddPrizeViewController.swift in Sources */,
-				565334C126A700090073BA4E /* Counter.swift in Sources */,
+				565334C126A700090073BA4E /* CountBasket.swift in Sources */,
 				56C63CC626A5B41600B8D586 /* MainCoordinator.swift in Sources */,
+				5653359D26A7F9E70073BA4E /* Validator.swift in Sources */,
 				56C63D1226A5C36200B8D586 /* PrizeTableViewCell.swift in Sources */,
 				56C63C6B26A5A19500B8D586 /* MainPageViewController.swift in Sources */,
 				56C63CB026A5A5B200B8D586 /* RealmManager.swift in Sources */,
