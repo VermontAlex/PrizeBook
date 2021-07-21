@@ -102,12 +102,22 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
             let index = indexPath.row
             let priceToDecrement = prizes[indexPath.row].price
             
-            counter.decrement(num: priceToDecrement)
             realmManager.delete(prize: prize)
             prizes.remove(at: index)
             
-            sumLabel.text = String(SettingsKeys.counterInBasket)
+            changeBasketValue(value: priceToDecrement)
             tableView.reloadData()
+        }
+    }
+    
+    private func changeBasketValue(value: Double) {
+        let current = SettingsKeys.counterInBasket - value
+        if current <= 0.0 {
+            SettingsKeys.counterInBasket = 0.0
+            sumLabel.text = "0.0"
+        } else {
+            counter.decrement(num: value)
+            sumLabel.text = String(SettingsKeys.counterInBasket)
         }
     }
 }
